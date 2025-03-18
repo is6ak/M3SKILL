@@ -1,10 +1,15 @@
 // Image
 const dynamicImage = document.getElementById("dynamicImage");
-const imageUrl = "img/bodrum-turkey.webp"; // Bron: "https://hips.hearstapps.com/hmg-prod/images/bodrum-in-turkey-royalty-free-image-1665505514.jpg?:*";
-dynamicImage.src = imageUrl;
+
+fetch('img/image.json')
+    .then(response => response.json())
+    .then(data => {
+        dynamicImage.src = data.imageUrl;
+    })
+    .catch(error => console.error("ERROR loading image JSON:", error));
 
 dynamicImage.onload = () => {
-    console.log("Image loaded."); // Debug
+    console.log("Image loaded from JSON."); // debug
 };
 
 // Timer
@@ -62,9 +67,12 @@ resetButton.addEventListener("click", reset);
 updateDisplay();
 
 // Volume func
+const initialFontSize = parseFloat(window.getComputedStyle(volumeValue).fontSize);
+
 volumeSlider.addEventListener("input", () => {
     let value = volumeSlider.value;
     volumeValue.textContent = `${value}%`;
 
-    volumeSlider.style.background = `linear-gradient(to right,rgb(0, 0, 0) ${value}%, #ccc ${value}%)`;
+    volumeSlider.style.background = `linear-gradient(to right, rgb(0, 0, 0) ${value}%, #ccc ${value}%)`;
+    volumeValue.style.fontSize = `${(initialFontSize * value) / 100}px`;
 });
