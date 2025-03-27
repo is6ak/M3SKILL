@@ -1,0 +1,211 @@
+@font-face {
+	font-family: 'GTVCS';
+	src: url('GTVCS-Black.woff2') format('woff2'),
+		url('GTVCS-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 2rem;
+	font-family: 'GTVCS';
+	background: #4A756E;
+	color: #CAB19B;
+	padding: 4rem;
+}
+
+.cards {
+	height: 85vh;
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(12, 1fr);
+	gap: 2rem;
+}
+
+.card {
+	list-style: none;
+	background: #8C5638;
+	border-radius: 1rem;
+	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+#credits {
+	text-align: center;
+	grid-row: 13 / 11;
+	grid-column: 9 / 12;
+	text-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.card--first {
+	grid-row: 1 / 7;
+	grid-column: 1 / 5;
+	padding: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 4rem;
+}
+
+.card--first>input {
+	width: 70%;
+	height: 4rem;
+	font-size: 2rem;
+	font-family: sans-serif;
+	padding-left: 2rem;
+}
+
+.card--second {
+	grid-column: 5/13;
+	grid-row: 1/9;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+#js--search-title {
+	font-size: clamp(2rem, 4vw, 5rem);
+}
+
+#js--search-text {
+	font-size: clamp(1.6rem, 2.5vw, 1.5rem);
+	max-width: 90%;
+}
+
+#js--search-text {
+	max-width: 90%;
+	padding: 0 1rem;
+}
+
+.card--third {
+	grid-row: 7/13;
+	grid-column: 2/5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+	text-align: center;
+	gap: 2rem;
+	overflow: hidden;
+	position: relative;
+}
+
+.card--third>h2 {
+	margin: 0;
+	font-size: 2.5rem;
+}
+
+
+.card--third>img {
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+
+.card--third>button {
+	width: 15rem;
+	height: 3rem;
+	font-size: 2rem;
+	font: 'GTVCS';
+	border: none;
+	background: #4A756E;
+	color: #eee;
+	border-radius: 0.5rem;
+	flex-shrink: 0;
+	flex-grow: 0;
+	box-sizing: border-box;
+	transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+	cursor: pointer;
+}
+
+.card--third>button:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+#js--input {
+	transition: transform 0.3s ease;
+	border-radius: 0.875rem;
+}
+
+#js--input:hover,
+#js--input:focus {
+	transform: scale(1.05);
+}
+
+
+#js--pokemon-animation {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -20%);
+	transition: opacity 0.5s ease;
+	pointer-events: none;
+}
+
+.hidden {
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.5s ease;
+}
+
+.hidden-2 {
+	opacity: 0;
+	transform: scale(0.9);
+	pointer-events: none;
+	transition: opacity 0.4s ease, transform 0.4s ease !important;
+}
+
+.reveal {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+
+#js--pokemon-animation,
+#js--pokemon-img,
+#js--pokemon-text,
+#js--catch-button {
+	transition: opacity 0.5s ease;
+}
+
+@media screen and (max-width: 87.5rem) {
+	.card--second {
+		grid-row: 1/13;
+	}
+
+	.card--third {
+		grid-column: 1/5;
+	}
+}
+
+@media screen and (max-width: 62.5rem) {
+	.card--third {
+		grid-row: 1/12;
+		grid-column: 1/13;
+	}
+
+	.card--first,
+	.card--second {
+		display: none;
+	}
+}
