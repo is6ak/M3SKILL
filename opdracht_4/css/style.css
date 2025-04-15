@@ -1,0 +1,37 @@
+html {
+	font-size: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: 'Segoe UI', sans-serif;
+	background: #101820;
+	color: #f1f1f1;
+}
+
+.grid-board {
+	display: flex;
+	gap: 1.5rem;
+	padding: 2rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.panel {
+	background: #1a1f2b;
+	padding: 0.8rem;
+	border-radius: 0.75rem;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 180px;
+	min-height: 180px;
+	flex: 1 1 180px;
+}
+
+#liveTime {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #ffffff;
+}
